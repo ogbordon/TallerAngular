@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Serie } from './serie';
-// import { dataSeries } from './dataSeries';
+import { dataSeries } from './dataSeries';
 import { SerieService } from './serie.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class SerieComponent implements OnInit {
 
   constructor(private serieService: SerieService) {}
   
-  series!: Array<Serie>;
+  series: Array<Serie> = dataSeries;
 
   getSeriesList() {
     this.serieService.getSeries().subscribe(ss => {

@@ -12,7 +12,7 @@ export class SerieComponent implements OnInit {
 
   constructor(private serieService: SerieService) {}
   
-  series: Array<Serie> = dataSeries;
+  series: Array<Serie> = dataSeries; 
 
   getSeriesList() {
     this.serieService.getSeries().subscribe(ss => {

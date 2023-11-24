@@ -12,7 +12,7 @@ export class SerieComponent implements OnInit {
 
   constructor(private serieService: SerieService) {}
   
-  series: Array<Serie> = dataSeries; 
+  series: Array<Serie> = [];
 
   getSeriesList() {
     this.serieService.getSeries().subscribe(ss => {
@@ -21,5 +21,11 @@ export class SerieComponent implements OnInit {
   }
   ngOnInit() {
     this.getSeriesList();
+  }
+  seasonsAvg(series: Serie[]) : number {
+    let totalSeasons: number = 0;
+    series.forEach((serie) => totalSeasons = totalSeasons + serie.seasons);
+    let seasonsAvg: number = totalSeasons / series.length
+    return seasonsAvg;
   }
 }
